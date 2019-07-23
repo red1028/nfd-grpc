@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['nfd_agent.py'],
-             pathex=['/root/nfd_grpc'],
+             pathex=['/root/nfd-grpc'],
              binaries=[],
              datas=[],
              hiddenimports=[],

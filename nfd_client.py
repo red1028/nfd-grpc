@@ -1,5 +1,5 @@
 # 
-# python -m grpc_tools.protoc -I/root/nfd_grpc --python_out=/root/nfd_grpc --grpc_python_out=/root/nfd_grpc /root/nfd_grpc/nfd_agent.proto
+# python -m grpc_tools.protoc -I/root/nfd-grpc --python_out=/root/nfd-grpc --grpc_python_out=/root/nfd-grpc /root/nfd-grpc/nfd_agent.proto
 # python nfd_client.py --face list
 # python nfd_client.py --face show --faceid 1
 # python nfd_client.py --face create --remote udp://192.168.123.123 # case of udp4
