@@ -43,6 +43,9 @@ message AckReply{
 // '0' is ALL or other number is faceid
 message NFDFaceIDReq{
     int32 faceid = 1;
+    string neighbor_hostname = 2;
+    string neighbor_ip = 3;
+    string neighbor_site_route = 4;
 }
 
 // Response NFD Face List
@@ -74,6 +77,9 @@ message NFDFaceCreateReq{
     string congestion_marking_interval = 6; // specified in milliseconds
     string default_congestion_threshold = 7;// specified in bytes
     string mtu = 8;                         // specified in bytes
+    string neighbor_hostname = 9;
+    string neighbor_ip = 10;
+    string neighbor_site_route = 11;
 }
 
 message NFDFibListRes{
