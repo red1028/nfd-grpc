@@ -1,4 +1,4 @@
-# 
+# compile and testing infomation
 # python -m grpc_tools.protoc -I/root/nfd-grpc --python_out=/root/nfd-grpc --grpc_python_out=/root/nfd-grpc /root/nfd-grpc/nfd_agent.proto
 # python nfd_client.py --face list
 # python nfd_client.py --face show --faceid 1

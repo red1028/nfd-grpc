@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// message definition 
 // python -m grpc_tools.protoc -I/root/nfd-grpc --python_out=/root/nfd-grpc --grpc_python_out=/root/nfd-grpc /root/nfd-grpc/nfd_agent.proto
 
 syntax = "proto3";
