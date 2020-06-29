@@ -585,7 +585,7 @@ class NFDRouterAgent(nfd_agent_pb2_grpc.NFDRouterAgentServicer):
         lsdb = []
         output_list = output_all.split("\n")
         for one_line in output_list:
-            if not one_line or 'name=/' in one_line:
+            if not one_line and 'name=/' in one_line:
                 one_line = re.sub('^      name=/', '/', one_line)
                 lsdb.append(one_line)
 
