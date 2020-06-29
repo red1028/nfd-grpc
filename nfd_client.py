@@ -278,8 +278,8 @@ def nlsr_lsdb_list(nfd_stup, **kwargs):
     lsdb_list = nfd_stup.NLSRLsdbList(empty_pb2.Empty())
     
     if lsdb_list.ack.ack_code == 'ok':
-        if len(lsdb_list.lsdb) > 0:
-            for item in lsdb_list.lsdb:
+        if len(lsdb_list.lsdbs) > 0:
+            for item in lsdb_list.lsdbs:
                 print("lsdb ==>%s" % item)
         else:
             print("No lsdb information")
