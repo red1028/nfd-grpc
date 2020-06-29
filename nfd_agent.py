@@ -547,10 +547,12 @@ class NFDRouterAgent(nfd_agent_pb2_grpc.NFDRouterAgentServicer):
         if request.mode == 'withdraw' :
             cmd = "nlsrc withdraw"
         
-        if request.prefix:
-            cmd += (" %s" % request.prefix)
         if request.mode:
             cmd += (" %s" % request.mode)
+        if request.prefix:
+            cmd += (" %s" % request.prefix)
+        if request.save:
+            cmd += (" %s" % request.save)
 
         ack_reply = nfd_agent_pb2.AckReply()
         if len(cmd) <= len('nlsrc advertise'):

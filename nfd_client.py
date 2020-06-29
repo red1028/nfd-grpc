@@ -259,11 +259,11 @@ def nfd_strategy_unset(nfd_stup, **kwargs):
 def nlsr_advertise_name(nfd_stup, **kwargs):
     advertise_req = nfd_agent_pb2.NLSRAdvertiseReq()
     if kwargs.get('mode'):
-        advertise_req.prefix = kwargs.get('mode')
+        advertise_req.mode = kwargs.get('mode')
     if kwargs.get('prefix'):
         advertise_req.prefix = kwargs.get('prefix')
     if kwargs.get('save'):
-        advertise_req.prefix = kwargs.get('save')
+        advertise_req.save = kwargs.get('save')
 
 
     ack_replay = nfd_stup.NLSRAdvertiseName(advertise_req)
@@ -390,6 +390,8 @@ if __name__ == '__main__':
     ###########################
     ## nlsrc command
     parser.add_argument('--advertise', required=False, help='set')
+    parser.add_argument('--mode', required=False, help='advertise|withdraw')
+    parser.add_argument('--save', required=False, help='save|delete')
     parser.add_argument('--lsdb', required=False, help='list')
     ###########################
     args = parser.parse_args()
@@ -478,6 +480,7 @@ if __name__ == '__main__':
     elif args.advertise == 'set':
         if args.mode: mode = args.mode
         if args.prefix: prefix = args.prefix
+        save = ''
         if args.save: save = args.save
         client_to_agent(command_opt='advertise name', mode=mode, prefix=prefix, save=save)
     elif args.lsdb == 'list':
