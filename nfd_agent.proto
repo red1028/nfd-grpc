@@ -137,6 +137,17 @@ message NFDStrategyShowRes{
 }
 
 
+message NLSRAdvertiseReq{
+    string mode = 1;    	// advertise or withdraw
+    string prefix = 2; 		// advertise or withdraw a name prefix
+    string save = 3;    	// save or delete
+}
+
+message NLSRLsdbListRes{
+    repeated string lsdb = 1; 		// nlsr lsdb list
+    AckReply ack = 2;
+}
+
 // NFD and NLSR exported by the server.
 service NFDRouterAgent {
 
@@ -166,4 +177,8 @@ service NFDRouterAgent {
     rpc NFDStrategyShow(NFDStrategyReq) returns (NFDStrategyShowRes) {}
     rpc NFDStrategySet(NFDStrategyReq) returns (AckReply) {}
     rpc NFDStrategyUnset(NFDStrategyReq) returns (AckReply) {}
+
+    // nlsr advertise, withdraw
+    rpc NLSRAdvertiseName(NLSRAdvertiseReq) returns (AckReply) {}
+    rpc NLSRLsdbList(google.protobuf.Empty) returns (NLSRLsdbListRes) {}
 }

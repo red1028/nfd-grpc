@@ -140,72 +140,6 @@ class NFDRouterAgent(nfd_agent_pb2_grpc.NFDRouterAgentServicer):
 
         return nfd_agent_pb2.NFDFaceListRes(faces=faces, ack=ack_reply)
 
-    def NLSRNeighborCreate(self, request):
-        if request.neighbor_hostname:
-            file_str = StringIO()
-            with open('/root/env_original', 'r') as f:
-                for line in f:
-                    n_hostname = "NEIGHBOR_HOSTNAME="
-                    n_ip = "NEIGHBOR_IP="
-                    n_siteroute = "NEIGHBOR_SITE_ROUTE="
-                    strip_line = line.strip('\n')
-                    file_str.write(strip_line)
-
-                    if n_hostname in line:
-                        #if len(n_hostname) != len(strip_line):
-                        #    file_str.write(':')
-                        file_str.write(request.neighbor_hostname)
-                        file_str.write(':')
-                    elif n_ip in line:
-                        #if len(n_ip) != len(strip_line):
-                        #    file_str.write(':')
-                        file_str.write(request.neighbor_ip)
-                        file_str.write(':')
-                    elif n_siteroute in line:
-                        #if len(n_siteroute) != len(strip_line):
-                        #    file_str.write(':')
-                        file_str.write(request.neighbor_site_route)
-                        file_str.write(':')
-                    file_str.write('\n')
-
-            with open('/root/env_original', 'w') as fw:
-                fw.write(file_str.getvalue())
-
-            #cmd = "/root/start_vicsnf.sh"
-            ps = subprocess.Popen(['/root/start_vicsnf.sh', 'grpc_nlsr'])
-            #ps = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
-
-    def NLSRNeighborDelete(self, request):
-        if request.neighbor_hostname:
-            env_string = ''
-            with open('/root/env_original', 'r') as f:
-                env_string = f.read()
-                if request.neighbor_hostname+':' in env_string:
-                    env_string = env_string.replace(request.neighbor_hostname+':', '')
-                elif ':'+request.neighbor_hostname in env_string:
-                    env_string = env_string.replace(':'+request.neighbor_hostname, '')
-                elif request.neighbor_hostname in env_string:
-                    env_string = env_string.replace(request.neighbor_hostname, '')
-                
-                if request.neighbor_ip+':' in env_string:
-                    env_string = env_string.replace(request.neighbor_ip+':', '')
-                elif ':'+request.neighbor_ip in env_string:
-                    env_string = env_string.replace(':'+request.neighbor_ip, '')
-                elif request.neighbor_ip in env_string:
-                    env_string = env_string.replace(request.neighbor_ip, '')
-                    
-                if request.neighbor_site_route+':' in env_string:
-                    env_string = env_string.replace(request.neighbor_site_route+':', '')
-                elif ':'+request.neighbor_site_route in env_string:
-                    env_string = env_string.replace(':'+request.neighbor_site_route, '')
-                elif request.neighbor_site_route in env_string:
-                    env_string = env_string.replace(request.neighbor_site_route, '')
-                
-            with open('/root/env_original', 'w') as f:
-                f.write(env_string)
-
-            ps = subprocess.Popen(['/root/start_vicsnf.sh', 'grpc_nlsr'])
-
     def NFDFaceCreate(self, request, context):
         # nfdc face create remote udp://router.example.net
         # nfdc face create remote ether://[08:00:27:01:01:01] local dev://eth2 persistency permanent
@@ -540,6 +474,122 @@ class NFDRouterAgent(nfd_agent_pb2_grpc.NFDRouterAgentServicer):
         return ack_reply
 
 
+    def NLSRNeighborCreate(self, request):
+        if request.neighbor_hostname:
+            file_str = StringIO()
+            with open('/root/env_original', 'r') as f:
+                for line in f:
+                    n_hostname = "NEIGHBOR_HOSTNAME="
+                    n_ip = "NEIGHBOR_IP="
+                    n_siteroute = "NEIGHBOR_SITE_ROUTE="
+                    strip_line = line.strip('\n')
+                    file_str.write(strip_line)
+
+                    if n_hostname in line:
+                        #if len(n_hostname) != len(strip_line):
+                        #    file_str.write(':')
+                        file_str.write(request.neighbor_hostname)
+                        file_str.write(':')
+                    elif n_ip in line:
+                        #if len(n_ip) != len(strip_line):
+                        #    file_str.write(':')
+                        file_str.write(request.neighbor_ip)
+                        file_str.write(':')
+                    elif n_siteroute in line:
+                        #if len(n_siteroute) != len(strip_line):
+                        #    file_str.write(':')
+                        file_str.write(request.neighbor_site_route)
+                        file_str.write(':')
+                    file_str.write('\n')
+
+            with open('/root/env_original', 'w') as fw:
+                fw.write(file_str.getvalue())
+
+            #cmd = "/root/start_vicsnf.sh"
+            ps = subprocess.Popen(['/root/start_vicsnf.sh', 'grpc_nlsr'])
+            #ps = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+
+    def NLSRNeighborDelete(self, request):
+        if request.neighbor_hostname:
+            env_string = ''
+            with open('/root/env_original', 'r') as f:
+                env_string = f.read()
+                if request.neighbor_hostname+':' in env_string:
+                    env_string = env_string.replace(request.neighbor_hostname+':', '')
+                elif ':'+request.neighbor_hostname in env_string:
+                    env_string = env_string.replace(':'+request.neighbor_hostname, '')
+                elif request.neighbor_hostname in env_string:
+                    env_string = env_string.replace(request.neighbor_hostname, '')
+                
+                if request.neighbor_ip+':' in env_string:
+                    env_string = env_string.replace(request.neighbor_ip+':', '')
+                elif ':'+request.neighbor_ip in env_string:
+                    env_string = env_string.replace(':'+request.neighbor_ip, '')
+                elif request.neighbor_ip in env_string:
+                    env_string = env_string.replace(request.neighbor_ip, '')
+                    
+                if request.neighbor_site_route+':' in env_string:
+                    env_string = env_string.replace(request.neighbor_site_route+':', '')
+                elif ':'+request.neighbor_site_route in env_string:
+                    env_string = env_string.replace(':'+request.neighbor_site_route, '')
+                elif request.neighbor_site_route in env_string:
+                    env_string = env_string.replace(request.neighbor_site_route, '')
+                
+            with open('/root/env_original', 'w') as f:
+                f.write(env_string)
+
+            ps = subprocess.Popen(['/root/start_vicsnf.sh', 'grpc_nlsr'])
+
+
+    def NLSRAdvertiseName(self, request, context):
+        # nlsrc advertise or withdraw  <PREFIX> [option <save or delete>]
+        cmd = "nlsrc advertise"
+        if request.mode == 'withdraw' :
+            cmd = "nlsrc withdraw"
+        
+        if request.prefix:
+            cmd += (" %s" % request.prefix)
+        if request.mode:
+            cmd += (" %s" % request.mode)
+
+        ack_reply = nfd_agent_pb2.AckReply()
+        if len(cmd) <= len('nlsrc advertise'):
+            ack_reply.ack_code = 'err'
+            ack_reply.ack_msg = 'subcommand is not set'
+            return ack_reply
+        
+        ps = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+        output_all = ps.communicate()[0]
+        if is_error(output_all):
+            ack_reply.ack_code = 'err'
+            ack_reply.ack_msg = ('%s' % output_all)
+        else:
+            ack_reply.ack_code = 'ok'
+            ack_reply.ack_msg = ('%s' % output_all)
+        return ack_reply
+
+    def NLSRLsdbList(self, request, context):
+        # Get Face List
+        cmd = "nlsrc lsdb"
+        ps = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+        output_all = ps.communicate()[0]
+
+        ack_reply = nfd_agent_pb2.AckReply()
+        if is_error(output_all):
+            ack_reply.ack_code = 'err'
+            ack_reply.ack_msg = ('%s' % output_all)
+            return nfd_agent_pb2.NLSRLsdbListRes(lsdb=[], ack=ack_reply)
+        else:
+            ack_reply.ack_code = 'ok'
+        
+        lsdb = []
+        output_list = output_all.split("\n")
+        for one_line in output_list:
+            if not one_line or 'name=/' in one_line:
+                one_line = re.sub('^      name=/', '/', one_line)
+                lsdb.append(one_line)
+
+        return nfd_agent_pb2.NLSRLsdbListRes(lsdb=lsdb, ack=ack_reply)
 
 
 

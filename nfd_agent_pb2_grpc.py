@@ -85,6 +85,16 @@ class NFDRouterAgentStub(object):
                 request_serializer=nfd__agent__pb2.NFDStrategyReq.SerializeToString,
                 response_deserializer=nfd__agent__pb2.AckReply.FromString,
                 )
+        self.NLSRAdvertiseName = channel.unary_unary(
+                '/nfd.NFDRouterAgent/NLSRAdvertiseName',
+                request_serializer=nfd__agent__pb2.NLSRAdvertiseReq.SerializeToString,
+                response_deserializer=nfd__agent__pb2.AckReply.FromString,
+                )
+        self.NLSRLsdbList = channel.unary_unary(
+                '/nfd.NFDRouterAgent/NLSRLsdbList',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=nfd__agent__pb2.NLSRLsdbListRes.FromString,
+                )
 
 
 class NFDRouterAgentServicer(object):
@@ -183,6 +193,19 @@ class NFDRouterAgentServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def NLSRAdvertiseName(self, request, context):
+        """nlsr advertise, withdraw
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def NLSRLsdbList(self, request, context):
+        """Missing associated documentation comment in .proto file"""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_NFDRouterAgentServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -255,6 +278,16 @@ def add_NFDRouterAgentServicer_to_server(servicer, server):
                     servicer.NFDStrategyUnset,
                     request_deserializer=nfd__agent__pb2.NFDStrategyReq.FromString,
                     response_serializer=nfd__agent__pb2.AckReply.SerializeToString,
+            ),
+            'NLSRAdvertiseName': grpc.unary_unary_rpc_method_handler(
+                    servicer.NLSRAdvertiseName,
+                    request_deserializer=nfd__agent__pb2.NLSRAdvertiseReq.FromString,
+                    response_serializer=nfd__agent__pb2.AckReply.SerializeToString,
+            ),
+            'NLSRLsdbList': grpc.unary_unary_rpc_method_handler(
+                    servicer.NLSRLsdbList,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=nfd__agent__pb2.NLSRLsdbListRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -488,5 +521,37 @@ class NFDRouterAgent(object):
         return grpc.experimental.unary_unary(request, target, '/nfd.NFDRouterAgent/NFDStrategyUnset',
             nfd__agent__pb2.NFDStrategyReq.SerializeToString,
             nfd__agent__pb2.AckReply.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def NLSRAdvertiseName(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/nfd.NFDRouterAgent/NLSRAdvertiseName',
+            nfd__agent__pb2.NLSRAdvertiseReq.SerializeToString,
+            nfd__agent__pb2.AckReply.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def NLSRLsdbList(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/nfd.NFDRouterAgent/NLSRLsdbList',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            nfd__agent__pb2.NLSRLsdbListRes.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)
