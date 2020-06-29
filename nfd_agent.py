@@ -543,10 +543,8 @@ class NFDRouterAgent(nfd_agent_pb2_grpc.NFDRouterAgentServicer):
 
     def NLSRAdvertiseName(self, request, context):
         # nlsrc advertise or withdraw  <PREFIX> [option <save or delete>]
-        cmd = "nlsrc advertise"
-        if request.mode == 'withdraw' :
-            cmd = "nlsrc withdraw"
-        
+        cmd = "nlsrc"
+
         if request.mode:
             cmd += (" %s" % request.mode)
         if request.prefix:
