@@ -582,17 +582,21 @@ class NFDRouterAgent(nfd_agent_pb2_grpc.NFDRouterAgentServicer):
         else:
             ack_reply.ack_code = 'ok'
         
-        lsdb = []
+        lsdbs = []
         output_list = output_all.split("\n")
+        origin_router = ''
         for one_line in output_list:
+            if 'OriginRouter: ' in one_line:
+                if origin_router == '' or origin_router not in one_line:
+                    origin_router = re.sub('^  OriginRouter: ', '', one_line)
+        
             if 'name=/' in one_line:
                 one_line = re.sub('^      name=/', '/', one_line)
-                lsdb.append(one_line)
+                lsdb = nfd_agent_pb2.LSDB(origin_router = origin_router,
+                                          prefix    = one_line)
+                lsdbs.append(lsdb)
 
-        return nfd_agent_pb2.NLSRLsdbListRes(lsdb=lsdb, ack=ack_reply)
-
-
-
+        return nfd_agent_pb2.NLSRLsdbListRes(lsdbs=lsdbs, ack=ack_reply)
 
 
     def NFDDaemon(self, request, context):

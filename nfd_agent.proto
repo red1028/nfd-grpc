@@ -143,8 +143,13 @@ message NLSRAdvertiseReq{
     string save = 3;    	// save or delete
 }
 
+
+message LSDB{
+    string origin_router = 1;
+    string prefix = 2;
+}
 message NLSRLsdbListRes{
-    repeated string lsdb = 1; 		// nlsr lsdb list
+    repeated LSDB lsdbs = 1; 		// nlsr lsdb list
     AckReply ack = 2;
 }
 

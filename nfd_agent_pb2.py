@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='nfd',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\x0fnfd_agent.proto\x12\x03nfd\x1a\x1bgoogle/protobuf/empty.proto\"H\n\x0cHostAdapters\x12\x12\n\nnic_ipaddr\x18\x01 \x01(\t\x12\x12\n\nnic_prefix\x18\x02 \x01(\t\x12\x10\n\x08nic_name\x18\x03 \x01(\t\"a\n\x07NFDHost\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06ipaddr\x18\x02 \x01(\t\x12\x0e\n\x06ifname\x18\x03 \x01(\t\x12(\n\rhost_adapters\x18\x04 \x03(\x0b\x32\x11.nfd.HostAdapters\"-\n\x08\x41\x63kReply\x12\x10\n\x08\x61\x63k_code\x18\x01 \x01(\t\x12\x0f\n\x07\x61\x63k_msg\x18\x02 \x01(\t\"k\n\x0cNFDFaceIDReq\x12\x0e\n\x06\x66\x61\x63\x65id\x18\x01 \x01(\x05\x12\x19\n\x11neighbor_hostname\x18\x02 \x01(\t\x12\x13\n\x0bneighbor_ip\x18\x03 \x01(\t\x12\x1b\n\x13neighbor_site_route\x18\x04 \x01(\t\"\x87\x01\n\x07NFDFace\x12\x0e\n\x06\x66\x61\x63\x65id\x18\x01 \x01(\t\x12\x0e\n\x06remote\x18\x02 \x01(\t\x12\r\n\x05local\x18\x03 \x01(\t\x12\x12\n\ncongestion\x18\x04 \x01(\t\x12\x0b\n\x03mtu\x18\x05 \x01(\t\x12\x10\n\x08\x63ounters\x18\x06 \x01(\t\x12\x0b\n\x03out\x18\x07 \x01(\t\x12\r\n\x05\x66lags\x18\x08 \x01(\t\"I\n\x0eNFDFaceListRes\x12\x1b\n\x05\x66\x61\x63\x65s\x18\x01 \x03(\x0b\x32\x0c.nfd.NFDFace\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply\"\x9c\x02\n\x10NFDFaceCreateReq\x12\x0e\n\x06remote\x18\x01 \x01(\t\x12\x13\n\x0bpersistency\x18\x02 \x01(\t\x12\r\n\x05local\x18\x03 \x01(\t\x12\x13\n\x0breliability\x18\x04 \x01(\t\x12\x1a\n\x12\x63ongestion_marking\x18\x05 \x01(\t\x12#\n\x1b\x63ongestion_marking_interval\x18\x06 \x01(\t\x12$\n\x1c\x64\x65\x66\x61ult_congestion_threshold\x18\x07 \x01(\t\x12\x0b\n\x03mtu\x18\x08 \x01(\t\x12\x19\n\x11neighbor_hostname\x18\t \x01(\t\x12\x13\n\x0bneighbor_ip\x18\n \x01(\t\x12\x1b\n\x13neighbor_site_route\x18\x0b \x01(\t\"8\n\rNFDFibListRes\x12\x0b\n\x03\x66ib\x18\x01 \x03(\t\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply\"2\n\x0fNFDRouteListReq\x12\x0f\n\x07nexthop\x18\x01 \x01(\t\x12\x0e\n\x06origin\x18\x02 \x01(\t\"<\n\x0fNFDRouteListRes\x12\r\n\x05route\x18\x01 \x03(\t\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply\"!\n\x0fNFDRouteShowReq\x12\x0e\n\x06prefix\x18\x01 \x01(\t\"<\n\x0fNFDRouteShowRes\x12\r\n\x05route\x18\x01 \x03(\t\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply\"]\n\x0bNFDRouteReq\x12\x0e\n\x06prefix\x18\x01 \x01(\t\x12\x0f\n\x07nexthop\x18\x02 \x01(\t\x12\x0e\n\x06origin\x18\x03 \x01(\t\x12\x0c\n\x04\x63ost\x18\x04 \x01(\t\x12\x0f\n\x07\x65xpires\x18\x05 \x01(\t\"$\n\x12NFDStatusReportReq\x12\x0e\n\x06\x66ormat\x18\x01 \x01(\t\"@\n\x12NFDStatusReportRes\x12\x0e\n\x06report\x18\x01 \x01(\t\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply\"2\n\x0eNFDStrategyReq\x12\x0e\n\x06prefix\x18\x01 \x01(\t\x12\x10\n\x08strategy\x18\x02 \x01(\t\"D\n\x12NFDStrategyListRes\x12\x12\n\nstrategies\x18\x01 \x03(\t\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply\"B\n\x12NFDStrategyShowRes\x12\x10\n\x08strategy\x18\x01 \x01(\t\x12\x1a\n\x03\x61\x63k\x18\x03 \x01(\x0b\x32\r.nfd.AckReply\">\n\x10NLSRAdvertiseReq\x12\x0c\n\x04mode\x18\x01 \x01(\t\x12\x0e\n\x06prefix\x18\x02 \x01(\t\x12\x0c\n\x04save\x18\x03 \x01(\t\";\n\x0fNLSRLsdbListRes\x12\x0c\n\x04lsdb\x18\x01 \x03(\t\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply2\xc1\x07\n\x0eNFDRouterAgent\x12.\n\rNFDHostNotify\x12\x0c.nfd.NFDHost\x1a\r.nfd.AckReply\"\x00\x12\x37\n\x0bNFDFaceList\x12\x11.nfd.NFDFaceIDReq\x1a\x13.nfd.NFDFaceListRes\"\x00\x12\x37\n\rNFDFaceCreate\x12\x15.nfd.NFDFaceCreateReq\x1a\r.nfd.AckReply\"\x00\x12\x34\n\x0eNFDFaceDestroy\x12\x11.nfd.NFDFaceIDReq\x1a\r.nfd.AckReply\"\x00\x12\x35\n\nNFDFibList\x12\x11.nfd.NFDFaceIDReq\x1a\x12.nfd.NFDFibListRes\"\x00\x12<\n\x0cNFDRouteList\x12\x14.nfd.NFDRouteListReq\x1a\x14.nfd.NFDRouteListRes\"\x00\x12<\n\x0cNFDRouteShow\x12\x14.nfd.NFDRouteShowReq\x1a\x14.nfd.NFDRouteShowRes\"\x00\x12\x30\n\x0bNFDRouteAdd\x12\x10.nfd.NFDRouteReq\x1a\r.nfd.AckReply\"\x00\x12\x33\n\x0eNFDRouteRemove\x12\x10.nfd.NFDRouteReq\x1a\r.nfd.AckReply\"\x00\x12\x45\n\x0fNFDStatusReport\x12\x17.nfd.NFDStatusReportReq\x1a\x17.nfd.NFDStatusReportRes\"\x00\x12\x44\n\x0fNFDStrategyList\x12\x16.google.protobuf.Empty\x1a\x17.nfd.NFDStrategyListRes\"\x00\x12\x41\n\x0fNFDStrategyShow\x12\x13.nfd.NFDStrategyReq\x1a\x17.nfd.NFDStrategyShowRes\"\x00\x12\x36\n\x0eNFDStrategySet\x12\x13.nfd.NFDStrategyReq\x1a\r.nfd.AckReply\"\x00\x12\x38\n\x10NFDStrategyUnset\x12\x13.nfd.NFDStrategyReq\x1a\r.nfd.AckReply\"\x00\x12;\n\x11NLSRAdvertiseName\x12\x15.nfd.NLSRAdvertiseReq\x1a\r.nfd.AckReply\"\x00\x12>\n\x0cNLSRLsdbList\x12\x16.google.protobuf.Empty\x1a\x14.nfd.NLSRLsdbListRes\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0fnfd_agent.proto\x12\x03nfd\x1a\x1bgoogle/protobuf/empty.proto\"H\n\x0cHostAdapters\x12\x12\n\nnic_ipaddr\x18\x01 \x01(\t\x12\x12\n\nnic_prefix\x18\x02 \x01(\t\x12\x10\n\x08nic_name\x18\x03 \x01(\t\"a\n\x07NFDHost\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06ipaddr\x18\x02 \x01(\t\x12\x0e\n\x06ifname\x18\x03 \x01(\t\x12(\n\rhost_adapters\x18\x04 \x03(\x0b\x32\x11.nfd.HostAdapters\"-\n\x08\x41\x63kReply\x12\x10\n\x08\x61\x63k_code\x18\x01 \x01(\t\x12\x0f\n\x07\x61\x63k_msg\x18\x02 \x01(\t\"k\n\x0cNFDFaceIDReq\x12\x0e\n\x06\x66\x61\x63\x65id\x18\x01 \x01(\x05\x12\x19\n\x11neighbor_hostname\x18\x02 \x01(\t\x12\x13\n\x0bneighbor_ip\x18\x03 \x01(\t\x12\x1b\n\x13neighbor_site_route\x18\x04 \x01(\t\"\x87\x01\n\x07NFDFace\x12\x0e\n\x06\x66\x61\x63\x65id\x18\x01 \x01(\t\x12\x0e\n\x06remote\x18\x02 \x01(\t\x12\r\n\x05local\x18\x03 \x01(\t\x12\x12\n\ncongestion\x18\x04 \x01(\t\x12\x0b\n\x03mtu\x18\x05 \x01(\t\x12\x10\n\x08\x63ounters\x18\x06 \x01(\t\x12\x0b\n\x03out\x18\x07 \x01(\t\x12\r\n\x05\x66lags\x18\x08 \x01(\t\"I\n\x0eNFDFaceListRes\x12\x1b\n\x05\x66\x61\x63\x65s\x18\x01 \x03(\x0b\x32\x0c.nfd.NFDFace\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply\"\x9c\x02\n\x10NFDFaceCreateReq\x12\x0e\n\x06remote\x18\x01 \x01(\t\x12\x13\n\x0bpersistency\x18\x02 \x01(\t\x12\r\n\x05local\x18\x03 \x01(\t\x12\x13\n\x0breliability\x18\x04 \x01(\t\x12\x1a\n\x12\x63ongestion_marking\x18\x05 \x01(\t\x12#\n\x1b\x63ongestion_marking_interval\x18\x06 \x01(\t\x12$\n\x1c\x64\x65\x66\x61ult_congestion_threshold\x18\x07 \x01(\t\x12\x0b\n\x03mtu\x18\x08 \x01(\t\x12\x19\n\x11neighbor_hostname\x18\t \x01(\t\x12\x13\n\x0bneighbor_ip\x18\n \x01(\t\x12\x1b\n\x13neighbor_site_route\x18\x0b \x01(\t\"8\n\rNFDFibListRes\x12\x0b\n\x03\x66ib\x18\x01 \x03(\t\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply\"2\n\x0fNFDRouteListReq\x12\x0f\n\x07nexthop\x18\x01 \x01(\t\x12\x0e\n\x06origin\x18\x02 \x01(\t\"<\n\x0fNFDRouteListRes\x12\r\n\x05route\x18\x01 \x03(\t\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply\"!\n\x0fNFDRouteShowReq\x12\x0e\n\x06prefix\x18\x01 \x01(\t\"<\n\x0fNFDRouteShowRes\x12\r\n\x05route\x18\x01 \x03(\t\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply\"]\n\x0bNFDRouteReq\x12\x0e\n\x06prefix\x18\x01 \x01(\t\x12\x0f\n\x07nexthop\x18\x02 \x01(\t\x12\x0e\n\x06origin\x18\x03 \x01(\t\x12\x0c\n\x04\x63ost\x18\x04 \x01(\t\x12\x0f\n\x07\x65xpires\x18\x05 \x01(\t\"$\n\x12NFDStatusReportReq\x12\x0e\n\x06\x66ormat\x18\x01 \x01(\t\"@\n\x12NFDStatusReportRes\x12\x0e\n\x06report\x18\x01 \x01(\t\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply\"2\n\x0eNFDStrategyReq\x12\x0e\n\x06prefix\x18\x01 \x01(\t\x12\x10\n\x08strategy\x18\x02 \x01(\t\"D\n\x12NFDStrategyListRes\x12\x12\n\nstrategies\x18\x01 \x03(\t\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply\"B\n\x12NFDStrategyShowRes\x12\x10\n\x08strategy\x18\x01 \x01(\t\x12\x1a\n\x03\x61\x63k\x18\x03 \x01(\x0b\x32\r.nfd.AckReply\">\n\x10NLSRAdvertiseReq\x12\x0c\n\x04mode\x18\x01 \x01(\t\x12\x0e\n\x06prefix\x18\x02 \x01(\t\x12\x0c\n\x04save\x18\x03 \x01(\t\"-\n\x04LSDB\x12\x15\n\rorigin_router\x18\x01 \x01(\t\x12\x0e\n\x06prefix\x18\x02 \x01(\t\"G\n\x0fNLSRLsdbListRes\x12\x18\n\x05lsdbs\x18\x01 \x03(\x0b\x32\t.nfd.LSDB\x12\x1a\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\r.nfd.AckReply2\xc1\x07\n\x0eNFDRouterAgent\x12.\n\rNFDHostNotify\x12\x0c.nfd.NFDHost\x1a\r.nfd.AckReply\"\x00\x12\x37\n\x0bNFDFaceList\x12\x11.nfd.NFDFaceIDReq\x1a\x13.nfd.NFDFaceListRes\"\x00\x12\x37\n\rNFDFaceCreate\x12\x15.nfd.NFDFaceCreateReq\x1a\r.nfd.AckReply\"\x00\x12\x34\n\x0eNFDFaceDestroy\x12\x11.nfd.NFDFaceIDReq\x1a\r.nfd.AckReply\"\x00\x12\x35\n\nNFDFibList\x12\x11.nfd.NFDFaceIDReq\x1a\x12.nfd.NFDFibListRes\"\x00\x12<\n\x0cNFDRouteList\x12\x14.nfd.NFDRouteListReq\x1a\x14.nfd.NFDRouteListRes\"\x00\x12<\n\x0cNFDRouteShow\x12\x14.nfd.NFDRouteShowReq\x1a\x14.nfd.NFDRouteShowRes\"\x00\x12\x30\n\x0bNFDRouteAdd\x12\x10.nfd.NFDRouteReq\x1a\r.nfd.AckReply\"\x00\x12\x33\n\x0eNFDRouteRemove\x12\x10.nfd.NFDRouteReq\x1a\r.nfd.AckReply\"\x00\x12\x45\n\x0fNFDStatusReport\x12\x17.nfd.NFDStatusReportReq\x1a\x17.nfd.NFDStatusReportRes\"\x00\x12\x44\n\x0fNFDStrategyList\x12\x16.google.protobuf.Empty\x1a\x17.nfd.NFDStrategyListRes\"\x00\x12\x41\n\x0fNFDStrategyShow\x12\x13.nfd.NFDStrategyReq\x1a\x17.nfd.NFDStrategyShowRes\"\x00\x12\x36\n\x0eNFDStrategySet\x12\x13.nfd.NFDStrategyReq\x1a\r.nfd.AckReply\"\x00\x12\x38\n\x10NFDStrategyUnset\x12\x13.nfd.NFDStrategyReq\x1a\r.nfd.AckReply\"\x00\x12;\n\x11NLSRAdvertiseName\x12\x15.nfd.NLSRAdvertiseReq\x1a\r.nfd.AckReply\"\x00\x12>\n\x0cNLSRLsdbList\x12\x16.google.protobuf.Empty\x1a\x14.nfd.NLSRLsdbListRes\"\x00\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -902,6 +902,44 @@ _NLSRADVERTISEREQ = _descriptor.Descriptor(
 )
 
 
+_LSDB = _descriptor.Descriptor(
+  name='LSDB',
+  full_name='nfd.LSDB',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='origin_router', full_name='nfd.LSDB.origin_router', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='prefix', full_name='nfd.LSDB.prefix', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1604,
+  serialized_end=1649,
+)
+
+
 _NLSRLSDBLISTRES = _descriptor.Descriptor(
   name='NLSRLsdbListRes',
   full_name='nfd.NLSRLsdbListRes',
@@ -910,8 +948,8 @@ _NLSRLSDBLISTRES = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='lsdb', full_name='nfd.NLSRLsdbListRes.lsdb', index=0,
-      number=1, type=9, cpp_type=9, label=3,
+      name='lsdbs', full_name='nfd.NLSRLsdbListRes.lsdbs', index=0,
+      number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -935,8 +973,8 @@ _NLSRLSDBLISTRES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1604,
-  serialized_end=1663,
+  serialized_start=1651,
+  serialized_end=1722,
 )
 
 _NFDHOST.fields_by_name['host_adapters'].message_type = _HOSTADAPTERS
@@ -948,6 +986,7 @@ _NFDROUTESHOWRES.fields_by_name['ack'].message_type = _ACKREPLY
 _NFDSTATUSREPORTRES.fields_by_name['ack'].message_type = _ACKREPLY
 _NFDSTRATEGYLISTRES.fields_by_name['ack'].message_type = _ACKREPLY
 _NFDSTRATEGYSHOWRES.fields_by_name['ack'].message_type = _ACKREPLY
+_NLSRLSDBLISTRES.fields_by_name['lsdbs'].message_type = _LSDB
 _NLSRLSDBLISTRES.fields_by_name['ack'].message_type = _ACKREPLY
 DESCRIPTOR.message_types_by_name['HostAdapters'] = _HOSTADAPTERS
 DESCRIPTOR.message_types_by_name['NFDHost'] = _NFDHOST
@@ -968,6 +1007,7 @@ DESCRIPTOR.message_types_by_name['NFDStrategyReq'] = _NFDSTRATEGYREQ
 DESCRIPTOR.message_types_by_name['NFDStrategyListRes'] = _NFDSTRATEGYLISTRES
 DESCRIPTOR.message_types_by_name['NFDStrategyShowRes'] = _NFDSTRATEGYSHOWRES
 DESCRIPTOR.message_types_by_name['NLSRAdvertiseReq'] = _NLSRADVERTISEREQ
+DESCRIPTOR.message_types_by_name['LSDB'] = _LSDB
 DESCRIPTOR.message_types_by_name['NLSRLsdbListRes'] = _NLSRLSDBLISTRES
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -1104,6 +1144,13 @@ NLSRAdvertiseReq = _reflection.GeneratedProtocolMessageType('NLSRAdvertiseReq', 
   })
 _sym_db.RegisterMessage(NLSRAdvertiseReq)
 
+LSDB = _reflection.GeneratedProtocolMessageType('LSDB', (_message.Message,), {
+  'DESCRIPTOR' : _LSDB,
+  '__module__' : 'nfd_agent_pb2'
+  # @@protoc_insertion_point(class_scope:nfd.LSDB)
+  })
+_sym_db.RegisterMessage(LSDB)
+
 NLSRLsdbListRes = _reflection.GeneratedProtocolMessageType('NLSRLsdbListRes', (_message.Message,), {
   'DESCRIPTOR' : _NLSRLSDBLISTRES,
   '__module__' : 'nfd_agent_pb2'
@@ -1119,8 +1166,8 @@ _NFDROUTERAGENT = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=1666,
-  serialized_end=2627,
+  serialized_start=1725,
+  serialized_end=2686,
   methods=[
   _descriptor.MethodDescriptor(
     name='NFDHostNotify',
